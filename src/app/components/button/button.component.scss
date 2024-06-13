@@ -1,0 +1,28 @@
+@mixin btn {
+  color: white;
+  padding: 20px 50px;
+  box-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1em;
+}
+
+.success {
+  background-color: green;
+  @include btn;
+}
+
+.primary {
+  background-color: #007bff;
+  @include btn;
+}
+
+.warning {
+  background-color: #c4280d;
+  @include btn;
+}
+
+.border {
+  border-radius: 30px;
+}
