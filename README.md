@@ -1,27 +1,143 @@
-# StorybookAngular
+# Chapter Storybook-Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+prueba de concepto con storybook y angular.
 
-## Development server
+## paso 1
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+`npm i`
 
-## Code scaffolding
+## paso 2
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+para poder ver los componentes creados y su documentacion colocamos el siguiente comando
 
-## Build
+`npm run storybook`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+aqui podremos ver los componentes creados y su documentacion
 
-## Running unit tests
+## paso 3
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+vamos a generar un nuevo componente para subirlo a storbook
 
-## Running end-to-end tests
+`ng g c components/card`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+luego en este paso creamos un archivo llamado `card.component.stories.ts` en la carpeta card previamente creada.
 
-## Further help
+## paso 4
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+agregamos el siguiente codigo al `card.component.html`
+
+```html
+<div class="card">
+    <div class="card-image">
+      <img src="https://via.placeholder.com/300x200" alt="Card image">
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">{{ title }}</h2>
+      <p class="card-text">{{ text }}</p>
+      <button class="card-button">Learn More</button>
+    </div>
+  </div>
+```
+
+## paso 5
+
+agregamos el siguiente codigo al `card.component.scss`
+
+```scss
+.card {
+    width: 300px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .card-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .card-button:hover {
+    background-color: #3e8e41;
+  }
+```
+
+## paso 6
+
+agregamos el siguiente codigo al `card.component.ts`
+
+```ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-card',
+  standalone: true,
+  imports: [],
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.scss'
+})
+export class CardComponent {
+  @Input() title = '';
+  @Input() text = '';
+}
+```
+
+## paso 7
+
+agregamos el siguiente codigo al `card.component.stories.ts`
+
+```ts
+import { Meta, StoryObj } from '@storybook/angular';
+import { CardComponent } from './card.component';
+
+
+const meta: Meta<CardComponent> = {
+    component: CardComponent,
+  };
+
+  export default meta; 
+  type Story = StoryObj<CardComponent>;
+
+  export const card: Story = {
+    args: {
+      title: 'Yappy',
+      text: 'esto es un hola desde storybook',
+    },
+  };
+```
+## paso 8
+
+ejecutamos el siguiente comando 
+
+`npm run storybook`
