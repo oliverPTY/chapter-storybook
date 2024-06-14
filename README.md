@@ -8,21 +8,13 @@ prueba de concepto con storybook y angular.
 
 ## paso 2
 
-para poder ver los componentes creados y su documentacion colocamos el siguiente comando
-
-`npm run storybook`
-
-aqui podremos ver los componentes creados y su documentacion
-
-## paso 3
-
 vamos a generar un nuevo componente para subirlo a storbook
 
 `ng g c components/card`
 
 luego en este paso creamos un archivo llamado `card.component.stories.ts` en la carpeta card previamente creada.
 
-## paso 4
+## paso 3
 
 agregamos el siguiente codigo al `card.component.html`
 
@@ -39,7 +31,7 @@ agregamos el siguiente codigo al `card.component.html`
   </div>
 ```
 
-## paso 5
+## paso 4
 
 agregamos el siguiente codigo al `card.component.scss`
 
@@ -93,7 +85,7 @@ agregamos el siguiente codigo al `card.component.scss`
   }
 ```
 
-## paso 6
+## paso 5
 
 agregamos el siguiente codigo al `card.component.ts`
 
@@ -119,7 +111,7 @@ export class CardComponent {
 }
 ```
 
-## paso 7
+## paso 6
 
 agregamos el siguiente codigo al `card.component.stories.ts`
 
@@ -142,8 +134,10 @@ const meta: Meta<CardComponent> = {
     },
   };
 ```
-## paso 8
+## paso 7
 
-ejecutamos el siguiente comando 
+para poder ver los componentes creados y su documentacion colocamos el siguiente comando
 
 `npm run storybook`
+
+aqui podremos ver los componentes creados y su documentacion
