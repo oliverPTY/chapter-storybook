@@ -136,6 +136,8 @@ const meta: Meta<CardComponent> = {
 ```
 ## paso 7
 
+importante tener `Node 18`
+
 para poder ver los componentes creados y su documentacion colocamos el siguiente comando
 
 `npm run storybook`
