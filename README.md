@@ -108,7 +108,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
+    /**
+   * texto que tendra el boton
+   */
   @Input() title = '';
+    /**
+   * cuerpo del card
+   */
   @Input() text = '';
 }
 ```
